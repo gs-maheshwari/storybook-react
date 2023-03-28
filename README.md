@@ -1,5 +1,5 @@
 <h1 align="center">
-  Intro to Storybook React template
+  Intro to Storybook React
 </h1>
 
 This template ships with the main React and Storybook configuration files you'll need to get up and running fast.
