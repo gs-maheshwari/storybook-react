@@ -1,5 +1,5 @@
 
-type TaskId = number | string;
+export type TaskId = number | string;
 
 export interface TaskEvents {
     onArchiveTask: (id: TaskId) => void,

@@ -1,6 +1,6 @@
-import { TaskData, TaskEvents } from "./task";
+import { TaskData } from "./task";
 
-export interface TaskListProps extends TaskEvents {
+export interface TaskListProps {
     loading: boolean,
     tasks: TaskData[]
 }
