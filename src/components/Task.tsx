@@ -1,7 +1,10 @@
-import { TaskProps } from '../types';
+import { TaskData, TaskEvents } from '../types';
 
-export const Task = (task: TaskProps) => {
+interface TaskProps extends TaskData, TaskEvents{}
+
+export const Task = ( task  :  TaskProps) => {
     const { id, title, state, onArchiveTask, onPinTask } = task;
+
     return (
         <div className={`list-item ${state}`}>
         <label

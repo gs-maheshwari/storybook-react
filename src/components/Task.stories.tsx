@@ -11,11 +11,13 @@ const Template: ComponentStory<typeof Task> = (args) => <Task {...args}></Task>;
 
 export const Default  = Template.bind({});
 
-Default.args = {
+export const DefaultArgs = {
     id: 1,
     title: 'Test Task',
     state: 'TASK_INBOX' 
-}
+} as const;
+
+Default.args = {...DefaultArgs};
 
 
 export const Pinned  = Template.bind({});
