@@ -24,7 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "init-msw": "msw init public/"
   },
   "eslintConfig": {
     "extends": [
@@ -67,7 +68,12 @@
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "msw": "^1.2.1",
+    "msw-storybook-addon": "^1.8.0",
     "prop-types": "^15.8.1",
     "webpack": "^5.76.3"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
