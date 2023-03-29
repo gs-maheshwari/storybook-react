@@ -31,18 +31,17 @@ const taskSlice = createSlice({
         updateTaskState:  (state, action) => {
             const { id: taskId, newTaskState } = action.payload;
             const task = state.tasks.find(({ id }) => id === taskId) as TaskData;
-            if(!task){
-                return state;
+            if(task){
+                const rest = state.tasks.filter(({ id }) => id !== taskId);
+                return {
+                    ...state,
+                    tasks: [ ...rest, {...task, state: newTaskState} ]
+                }
+                
             }
 
-            task.state = newTaskState;
-            return {
-                ...state,
-                tasks: {
-                    ...state.tasks,
-                    task
-                }
-            }
+            return state;
+           
         }
     },
     extraReducers (builder) {
