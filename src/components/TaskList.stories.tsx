@@ -11,14 +11,14 @@ import { TaskListState } from '../lib/store';
 
 const defaultTask = TaskDefaultStory.args as TaskData;
 
-export const MockedState = {
+export const MockedState : TaskListState= {
   tasks: [
-    { ...defaultTask, id: '1', title: 'Task 1' },
-    { ...defaultTask, id: '2', title: 'Task 2' },
-    { ...defaultTask, id: '3', title: 'Task 3' },
-    { ...defaultTask, id: '4', title: 'Task 4' },
-    { ...defaultTask, id: '5', title: 'Task 5' },
-    { ...defaultTask, id: '6', title: 'Task 6' },
+    { ...defaultTask, id: '1', title: 'Task 1', completed: false },
+    { ...defaultTask, id: '2', title: 'Task 2', completed: false },
+    { ...defaultTask, id: '3', title: 'Task 3', completed: false },
+    { ...defaultTask, id: '4', title: 'Task 4', completed: false },
+    { ...defaultTask, id: '5', title: 'Task 5', completed: false },
+    { ...defaultTask, id: '6', title: 'Task 6', completed: false },
   ],
   status: 'idle' as const,
   error: null,
@@ -76,7 +76,7 @@ export const WithPinnedTasks = Template.bind({});
 WithPinnedTasks.decorators = [(story) => {
     const pinnedTasks: TaskData[] = [
         ...MockedState.tasks.slice(0,5),
-        { id: '7', title: 'Pinned Task', state: 'TASK_PINNED'}
+        { id: '7', title: 'Pinned Task', state: 'TASK_PINNED', completed: false}
     ]
 
     return (<MockStore taskListState={{...MockedState, tasks: pinnedTasks}}>{story()}</MockStore>)

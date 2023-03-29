@@ -7,6 +7,7 @@ export interface TaskEvents {
 }
 
 export interface TaskData {
+    completed: boolean;
     id: TaskId,
     title: string,
     state: 'TASK_INBOX' | 'TASK_PINNED' | 'TASK_ARCHIVED'
