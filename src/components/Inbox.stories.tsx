@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { ComponentMeta, Story } from '@storybook/react';
 import { rest } from 'msw';
 import { MockedState } from './TaskList.stories';
+import { fireEvent, waitFor, waitForElementToBeRemoved, within } from '@storybook/testing-library';
 
 export default {
   component: Inbox,
@@ -26,6 +27,15 @@ Default.parameters  = {
         ]
     }
 }
+
+Default.play = async ({ canvasElement }) => {
+     const canvas = within(canvasElement);
+     await waitForElementToBeRemoved(await canvas.findByTestId('loading'));
+     await waitFor(async () => {
+        await fireEvent.click(canvas.getByLabelText('pinTask-1'));
+        await fireEvent.click(canvas.getByLabelText('pinTask-3'));
+    });
+};
 
 export const Error: Story = Template.bind({});
 
